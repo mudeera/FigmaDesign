@@ -1,0 +1,419 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    color: #222;
+    padding-bottom: 80px;
+}
+
+
+/* Header */
+
+.header {
+    background: white;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 15px 6%;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #1677ff;
+}
+
+.location {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.search-box {
+    flex: 1;
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 13px;
+    font-size: 14px;
+}
+
+.search-box button {
+    border: none;
+    background: #1677ff;
+    color: white;
+    padding: 0 22px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sell-btn {
+    background: #1677ff;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* Categories */
+
+.categories-section {
+    background: white;
+    padding: 30px 6%;
+}
+
+.categories-section h2 {
+    margin-bottom: 20px;
+}
+
+.categories {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+}
+
+.category {
+    min-width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.category-icon {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    background: #eef4ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.category p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
+/* Main */
+
+.main-container {
+    width: 88%;
+    max-width: 1300px;
+    margin: 35px auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-header p {
+    color: #777;
+    margin-top: 5px;
+}
+
+.section-header select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+
+/* Products */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+}
+
+.product-image {
+    height: 210px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.favorite {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.favorite.saved {
+    color: red;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.product-info h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.product-info span {
+    color: #777;
+    font-size: 12px;
+}
+
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 450px;
+    max-width: 90%;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+.modal-content textarea {
+    height: 100px;
+    resize: none;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.post-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    background: #1677ff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Bottom Navigation */
+
+.bottom-nav {
+    display: none;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .location {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        padding-bottom: 75px;
+    }
+
+    .header {
+        padding: 12px 15px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .login-btn,
+    .sell-btn {
+        display: none;
+    }
+
+    .search-box {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .categories-section {
+        padding: 20px 15px;
+    }
+
+    .main-container {
+        width: 92%;
+        margin: 25px auto;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 160px;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+
+    .product-info h3 {
+        font-size: 14px;
+    }
+
+    .product-info h4 {
+        font-size: 15px;
+    }
+
+    .section-header select {
+        display: none;
+    }
+
+
+    /* Mobile Navigation */
+
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-top: 1px solid #ddd;
+        z-index: 999;
+    }
+
+    .bottom-nav a {
+        text-decoration: none;
+        color: #666;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        font-size: 18px;
+    }
+
+    .bottom-nav a span {
+        font-size: 10px;
+    }
+
+    .bottom-nav a.active {
+        color: #1677ff;
+    }
+
+    .nav-sell {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: #1677ff;
+        color: white;
+        font-size: 28px;
+        margin-top: -25px;
+        cursor: pointer;
+    }
+
+}

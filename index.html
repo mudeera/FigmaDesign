@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classifieds App</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            Classi<span>fy</span>
+        </div>
+
+        <div class="location">
+            📍 Islamabad
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="What are you looking for?">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+
+        <button class="login-btn">Login</button>
+
+        <button class="sell-btn" onclick="openPostAd()">
+            + Sell
+        </button>
+
+    </header>
+
+
+    <!-- Categories -->
+    <section class="categories-section">
+
+        <h2>Browse Categories</h2>
+
+        <div class="categories">
+
+            <div class="category">
+                <div class="category-icon">📱</div>
+                <p>Mobiles</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">💻</div>
+                <p>Electronics</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🚗</div>
+                <p>Vehicles</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🏠</div>
+                <p>Property</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🛋️</div>
+                <p>Furniture</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">👗</div>
+                <p>Fashion</p>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">💼</div>
+                <p>Jobs</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Main Content -->
+    <main class="main-container">
+
+        <div class="section-header">
+
+            <div>
+                <h2>Recent Listings</h2>
+                <p>Find products near you</p>
+            </div>
+
+            <select id="sortProducts" onchange="sortProducts()">
+                <option value="newest">Newest</option>
+                <option value="low">Price Low to High</option>
+                <option value="high">Price High to Low</option>
+            </select>
+
+        </div>
+
+
+        <!-- Products -->
+        <div class="products" id="productsContainer">
+
+            <div class="product-card" data-price="120000">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=600"
+                         alt="iPhone">
+                    <button class="favorite" onclick="toggleFavorite(this)">
+                        ♡
+                    </button>
+                </div>
+
+                <div class="product-info">
+
+                    <h3>iPhone 13 Pro</h3>
+
+                    <h4>Rs. 120,000</h4>
+
+                    <p>Used • Excellent Condition</p>
+
+                    <span>📍 Islamabad</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card" data-price="45000">
+
+                <div class="product-image">
+
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600"
+                         alt="Sofa">
+
+                    <button class="favorite" onclick="toggleFavorite(this)">
+                        ♡
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Modern Sofa Set</h3>
+
+                    <h4>Rs. 45,000</h4>
+
+                    <p>Used • Good Condition</p>
+
+                    <span>📍 Rawalpindi</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card" data-price="4500000">
+
+                <div class="product-image">
+
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600"
+                         alt="Car">
+
+                    <button class="favorite" onclick="toggleFavorite(this)">
+                        ♡
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Toyota Corolla 2020</h3>
+
+                    <h4>Rs. 4,500,000</h4>
+
+                    <p>Used • Excellent Condition</p>
+
+                    <span>📍 Lahore</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card" data-price="85000">
+
+                <div class="product-image">
+
+                    <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600"
+                         alt="Laptop">
+
+                    <button class="favorite" onclick="toggleFavorite(this)">
+                        ♡
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>MacBook Air</h3>
+
+                    <h4>Rs. 85,000</h4>
+
+                    <p>Used • Like New</p>
+
+                    <span>📍 Islamabad</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Post Ad Modal -->
+    <div class="modal" id="postAdModal">
+
+        <div class="modal-content">
+
+            <button class="close-btn" onclick="closePostAd()">×</button>
+
+            <h2>Post Your Ad</h2>
+
+            <input type="text" placeholder="Ad Title">
+
+            <textarea placeholder="Description"></textarea>
+
+            <input type="number" placeholder="Price">
+
+            <select>
+                <option>Select Category</option>
+                <option>Mobiles</option>
+                <option>Electronics</option>
+                <option>Vehicles</option>
+                <option>Property</option>
+                <option>Furniture</option>
+                <option>Fashion</option>
+            </select>
+
+            <select>
+                <option>Select Condition</option>
+                <option>New</option>
+                <option>Used</option>
+            </select>
+
+            <input type="text" placeholder="Location">
+
+            <input type="file" multiple>
+
+            <button class="post-btn">
+                Post Ad
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+
+        <a href="#" class="active">
+            🏠
+            <span>Home</span>
+        </a>
+
+        <a href="#">
+            🔍
+            <span>Search</span>
+        </a>
+
+        <button onclick="openPostAd()" class="nav-sell">
+            +
+        </button>
+
+        <a href="#">
+            ❤️
+            <span>Saved</span>
+        </a>
+
+        <a href="#">
+            👤
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
